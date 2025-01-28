@@ -16,11 +16,13 @@ public class Stock {
     public void addProduct(Product product) {
         for (Product item: products) {
             if(item.getId() == product.getId()) {
-                System.err.print("Existing product!");
+                System.err.print("Existing product! " + item.getId());
+                return;
             }
-
-            products.add(product);
         }
+
+        products.add(product);
+        System.out.println("Product successfully added: " + product.getName());
     }
 
     public void removeProduct(int id) {
@@ -37,7 +39,7 @@ public class Stock {
         for (Product item: products) {
             if(item.getId() == id) {
                 if(newQuantity < 0) {
-                    System.err.println("Enter a valid number (> 0)");
+                    System.err.println("Enter a valid number (> 0) ");
                 }
 
                 item.setQuantity(newQuantity);
@@ -48,10 +50,10 @@ public class Stock {
 
     public void displayStock() {
         if (products.isEmpty()) {
-            System.err.println("The stock is empty!");
-        } else {
-            System.out.println("Currenty stock: ");
-
+            System.err.println("\nThe stock is empty!");
+        } else {   
+            System.out.println("\nCurrenty stock: ");
+            
             for (Product item: products) {
                 System.out.println(item);
             }
