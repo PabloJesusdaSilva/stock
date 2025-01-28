@@ -39,9 +39,21 @@ public class Stock {
                 if(newQuantity < 0) {
                     System.err.println("Enter a valid number (> 0)");
                 }
-                
+
                 item.setQuantity(newQuantity);
                 System.out.println("Quantity successfully updated!");
+            }
+        }
+    }
+
+    public void displayStock() {
+        if (products.isEmpty()) {
+            System.err.println("The stock is empty!");
+        } else {
+            System.out.println("Currenty stock: ");
+
+            for (Product item: products) {
+                System.out.println(item);
             }
         }
     }
