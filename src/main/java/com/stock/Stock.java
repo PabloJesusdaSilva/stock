@@ -27,6 +27,21 @@ public class Stock {
         for (Product item: products) {
             if(item.getId() == id) {
                 products.remove(item);
+            } else {
+                System.err.println("Product not exists");
+            }
+        }
+    }
+
+    public void updateProductQuantity(int id, int newQuantity) {
+        for (Product item: products) {
+            if(item.getId() == id) {
+                if(newQuantity < 0) {
+                    System.err.println("Enter a valid number (> 0)");
+                }
+                
+                item.setQuantity(newQuantity);
+                System.out.println("Quantity successfully updated!");
             }
         }
     }
