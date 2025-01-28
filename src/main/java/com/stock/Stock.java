@@ -14,12 +14,20 @@ public class Stock {
     }
 
     public void addProduct(Product product) {
-        for (Product p: products) {
-            if(p.getId() == product.getId()) {
+        for (Product item: products) {
+            if(item.getId() == product.getId()) {
                 System.err.print("Existing product!");
             }
 
-            this.products.add(product);
+            products.add(product);
+        }
+    }
+
+    public void removeProduct(int id) {
+        for (Product item: products) {
+            if(item.getId() == id) {
+                products.remove(item);
+            }
         }
     }
 }
